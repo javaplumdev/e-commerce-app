@@ -8,14 +8,21 @@ export function FuncContext({ children }) {
 	const [marketDataState, setMarketDataState] = useState(marketData);
 	const [itemQuantity, setItemQuantity] = useState(0);
 	const [cart, setCart] = useState([]);
+	const [grandTotal, setGrandTotal] = useState(0);
+
+	const [finalCart, setFinalCart] = useState([]);
 
 	function increaseItemQty(id) {
 		marketDataState.map((item) => {
 			if (id === item.id) {
 				setItemQuantity(item.itemQty++);
-				console.log(item);
+				item.totalPrice = item.price * item.itemQty;
 			}
 		});
+
+		setGrandTotal(
+			cart.map((item) => item.totalPrice).reduce((prev, curr) => prev + curr, 0)
+		);
 	}
 
 	function decreaseItemQty(id) {
@@ -25,10 +32,14 @@ export function FuncContext({ children }) {
 					return 0;
 				} else {
 					setItemQuantity(item.itemQty--);
-					console.log(item);
+					item.totalPrice = item.totalPrice - item.price;
 				}
 			}
 		});
+
+		setGrandTotal(
+			cart.map((item) => item.totalPrice).reduce((prev, curr) => prev + curr, 0)
+		);
 	}
 
 	const uniqueIds = [];
@@ -45,7 +56,7 @@ export function FuncContext({ children }) {
 			return false;
 		});
 
-		console.log(unique);
+		setFinalCart(unique);
 	}
 
 	return (
@@ -56,6 +67,8 @@ export function FuncContext({ children }) {
 				itemQuantity,
 				decreaseItemQty,
 				addToCart,
+				finalCart,
+				grandTotal,
 			}}
 		>
 			{children}

@@ -21,7 +21,7 @@ function ItemContainer() {
 							<p>{item.name}</p>
 							<div style={{ display: 'flex', justifyContent: 'center' }}>
 								<button onClick={() => increaseItemQty(item.id)}>+</button>
-								<p>{itemQuantity}</p>
+								<p>{item.itemQty}</p>
 								<button onClick={() => decreaseItemQty(item.id)}>-</button>
 							</div>
 							<button onClick={() => addToCart(item)}>Add to cart</button>

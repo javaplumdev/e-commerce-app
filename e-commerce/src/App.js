@@ -29,7 +29,15 @@ function App() {
 						/>
 					</Routes>
 					<Routes>
-						<Route path="/itemcontainer/:id" element={<ItemContainer />} />
+						<Route
+							path="/itemcontainer/:id"
+							element={
+								<>
+									<ItemContainer />
+									<CartContainer />
+								</>
+							}
+						/>
 					</Routes>
 				</div>
 			</FuncContext>
