@@ -1,0 +1,37 @@
+import { useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { contextProvider } from '../context/contextContainer';
+
+function ItemContainer() {
+	const {
+		marketDataState,
+		increaseItemQty,
+		itemQuantity,
+		decreaseItemQty,
+		addToCart,
+	} = useContext(contextProvider);
+	const { id } = useParams();
+
+	return (
+		<>
+			{marketDataState.map((item) => {
+				if (parseInt(id) === item.id) {
+					return (
+						<div key={item.id}>
+							<p>{item.name}</p>
+							<div style={{ display: 'flex', justifyContent: 'center' }}>
+								<button onClick={() => increaseItemQty(item.id)}>+</button>
+								<p>{itemQuantity}</p>
+								<button onClick={() => decreaseItemQty(item.id)}>-</button>
+							</div>
+							<button onClick={() => addToCart(item)}>Add to cart</button>
+							<button>Buy now</button>
+						</div>
+					);
+				}
+			})}
+		</>
+	);
+}
+
+export default ItemContainer;
