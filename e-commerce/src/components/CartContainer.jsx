@@ -3,22 +3,17 @@ import React, { useContext } from 'react';
 import { contextProvider } from '../context/contextContainer';
 
 function CartContainer() {
-	const {
-		finalCart,
-		grandTotal,
-		increaseItemQty,
-		decreaseItemQty,
-		removeItem,
-	} = useContext(contextProvider);
+	const { cart, grandTotal, increaseItemQty, decreaseItemQty, removeItem } =
+		useContext(contextProvider);
 
 	return (
 		<>
 			<h1>Cart</h1>
 
 			<div style={{ display: 'flex', justifyContent: 'center' }}>
-				{finalCart.length >= 1 ? (
+				{cart.length >= 1 ? (
 					<>
-						{finalCart.map((item) => {
+						{cart.map((item) => {
 							return (
 								<div key={item.id}>
 									<div>

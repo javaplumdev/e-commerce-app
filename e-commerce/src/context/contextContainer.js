@@ -10,8 +10,6 @@ export function FuncContext({ children }) {
 	const [cart, setCart] = useState([]);
 	const [grandTotal, setGrandTotal] = useState(0);
 
-	const [finalCart, setFinalCart] = useState([]);
-
 	function increaseItemQty(id) {
 		marketDataState.map((item) => {
 			if (id === item.id) {
@@ -20,7 +18,7 @@ export function FuncContext({ children }) {
 			}
 		});
 
-		var total = finalCart.reduce(function (prev, cur) {
+		var total = cart.reduce(function (prev, cur) {
 			return prev + cur.totalPrice;
 		}, 0);
 
@@ -39,41 +37,49 @@ export function FuncContext({ children }) {
 			}
 		});
 
-		var total = finalCart.reduce(function (prev, cur) {
+		var total = cart.reduce(function (prev, cur) {
 			return prev + cur.totalPrice;
 		}, 0);
 
 		setGrandTotal(total);
 	}
 
-	const uniqueIds = [];
-	function addToCart(id) {
-		marketDataState.map((item) => {
-			if (item.id === id) {
-				setCart((prevState) => [...prevState, item]);
-			}
-		});
+	function addToCart(id, product) {
+		const isItemExist = cart.find((item) => item.id === id);
 
-		const unique = cart.filter((element) => {
-			const isDuplicate = uniqueIds.includes(element.id);
+		if (isItemExist) {
+			console.log('Item already added');
+		} else {
+			marketDataState.map((item) => {
+				if (id === item.id) {
+					setItemQuantity(item.itemQty++);
 
-			if (!isDuplicate) {
-				uniqueIds.push(element.id);
-				return true;
-			}
-			return false;
-		});
+					item.totalPrice = item.price * item.itemQty;
+				}
+			});
 
-		setFinalCart(unique);
+			setCart((prevState) => [...prevState, product]);
+			setGrandTotal(
+				(prevState) => prevState + product.totalPrice * product.itemQty
+			);
+		}
 	}
 
 	function removeItem(id) {
-		finalCart.map((item) => {
-			return (item.itemQty = 0), (item.totalPrice = 0);
+		cart.map((item) => {
+			if (item.id === id) {
+				return (item.itemQty = 0), (item.totalPrice = 0);
+			}
 		});
 
-		const filtered = finalCart.filter((element) => element.id !== id);
-		setFinalCart(filtered);
+		const filtered = cart.filter((element) => element.id !== id);
+		setCart(filtered);
+
+		var total = cart.reduce(function (prev, cur) {
+			return prev + cur.totalPrice;
+		}, 0);
+
+		setGrandTotal(total);
 	}
 
 	return (
@@ -84,7 +90,7 @@ export function FuncContext({ children }) {
 				itemQuantity,
 				decreaseItemQty,
 				addToCart,
-				finalCart,
+				cart,
 				grandTotal,
 				removeItem,
 			}}

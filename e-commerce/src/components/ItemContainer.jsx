@@ -19,7 +19,9 @@ function ItemContainer() {
 								<p>{item.itemQty}</p>
 								<button onClick={() => decreaseItemQty(item.id)}>-</button>
 							</div>
-							<button onClick={() => addToCart(item.id)}>Add to cart</button>
+							<button onClick={() => addToCart(item.id, item)}>
+								Add to cart
+							</button>
 							<button>Buy now</button>
 						</div>
 					);
