@@ -3,7 +3,13 @@ import React, { useContext } from 'react';
 import { contextProvider } from '../context/contextContainer';
 
 function CartContainer() {
-	const { finalCart, grandTotal } = useContext(contextProvider);
+	const {
+		finalCart,
+		grandTotal,
+		increaseItemQty,
+		decreaseItemQty,
+		removeItem,
+	} = useContext(contextProvider);
 
 	return (
 		<>
@@ -19,8 +25,16 @@ function CartContainer() {
 										<p>{item.name}</p>
 										<p>{item.itemQty}</p>
 									</div>
+									<div style={{ display: 'flex', justifyContent: 'center' }}>
+										<button onClick={() => increaseItemQty(item.id)}>+</button>
+										<p>{item.itemQty}</p>
+										<button onClick={() => decreaseItemQty(item.id)}>-</button>
+									</div>
 									<p>Product price: {item.price}</p>
 									<p>Total price: {item.totalPrice}</p>
+									<button onClick={() => removeItem(item.id)}>
+										Remove item
+									</button>
 								</div>
 							);
 						})}

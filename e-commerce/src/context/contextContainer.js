@@ -20,15 +20,17 @@ export function FuncContext({ children }) {
 			}
 		});
 
-		setGrandTotal(
-			cart.map((item) => item.totalPrice).reduce((prev, curr) => prev + curr, 0)
-		);
+		var total = finalCart.reduce(function (prev, cur) {
+			return prev + cur.totalPrice;
+		}, 0);
+
+		setGrandTotal(total);
 	}
 
 	function decreaseItemQty(id) {
 		marketDataState.map((item) => {
 			if (id === item.id) {
-				if (itemQuantity < 1) {
+				if (itemQuantity <= 1) {
 					return 0;
 				} else {
 					setItemQuantity(item.itemQty--);
@@ -37,14 +39,20 @@ export function FuncContext({ children }) {
 			}
 		});
 
-		setGrandTotal(
-			cart.map((item) => item.totalPrice).reduce((prev, curr) => prev + curr, 0)
-		);
+		var total = finalCart.reduce(function (prev, cur) {
+			return prev + cur.totalPrice;
+		}, 0);
+
+		setGrandTotal(total);
 	}
 
 	const uniqueIds = [];
-	function addToCart(product) {
-		setCart((prevState) => [...prevState, product]);
+	function addToCart(id) {
+		marketDataState.map((item) => {
+			if (item.id === id) {
+				setCart((prevState) => [...prevState, item]);
+			}
+		});
 
 		const unique = cart.filter((element) => {
 			const isDuplicate = uniqueIds.includes(element.id);
@@ -59,6 +67,15 @@ export function FuncContext({ children }) {
 		setFinalCart(unique);
 	}
 
+	function removeItem(id) {
+		finalCart.map((item) => {
+			return (item.itemQty = 0), (item.totalPrice = 0);
+		});
+
+		const filtered = finalCart.filter((element) => element.id !== id);
+		setFinalCart(filtered);
+	}
+
 	return (
 		<contextProvider.Provider
 			value={{
@@ -69,6 +86,7 @@ export function FuncContext({ children }) {
 				addToCart,
 				finalCart,
 				grandTotal,
+				removeItem,
 			}}
 		>
 			{children}
