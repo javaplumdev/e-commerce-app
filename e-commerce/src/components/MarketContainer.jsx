@@ -8,19 +8,33 @@ function MarketContainer() {
 	const { marketDataState } = useContext(contextProvider);
 
 	return (
-		<div className="container d-flex flex-wrap">
-			{marketDataState.map((item) => {
-				return (
-					<div key={item.id} className="marketContainer  m-2">
-						<Link to={`/itemcontainer/${item.id}`}>
-							<div className="marketContainer">
-								<p>{item.name}</p>
-							</div>
-						</Link>
-					</div>
-				);
-			})}
-		</div>
+		<>
+			{/* Special image  */}
+			<div>
+				<h1 className="fw-bold">
+					Get the flashes <br></br>deal this rainy season.
+				</h1>
+			</div>
+			<div className=" d-flex flex-wrap justify-content-center">
+				{marketDataState.map((item) => {
+					return (
+						<div key={item.id} className="marketContainer m-3">
+							<Link to={`/itemcontainer/${item.id}`}>
+								<div className="marketContainer">
+									<img
+										src={item.img}
+										alt={item.name}
+										className="img-fluid"
+										style={{ height: '200px' }}
+									/>
+									<p>{item.name}</p>
+								</div>
+							</Link>
+						</div>
+					);
+				})}
+			</div>
+		</>
 	);
 }
 

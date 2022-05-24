@@ -4,7 +4,7 @@ import './App.css';
 
 // Components
 import MarketContainer from './components/MarketContainer';
-import CartContainer from './components/CartContainer';
+import NavbarComponent from './components/Navbar';
 import ItemContainer from './components/ItemContainer';
 
 import { FuncContext } from './context/contextContainer';
@@ -19,30 +19,14 @@ function App() {
 	return (
 		<Router>
 			<FuncContext>
-				<div className="App">
+				<div className="App container">
 					<Toaster />
+					<NavbarComponent />
 					<Routes>
-						<Route
-							index
-							path="/"
-							element={
-								<>
-									<MarketContainer />
-									<CartContainer />
-								</>
-							}
-						/>
+						<Route index path="/" element={<MarketContainer />} />
 					</Routes>
 					<Routes>
-						<Route
-							path="/itemcontainer/:id"
-							element={
-								<>
-									<ItemContainer />
-									<CartContainer />
-								</>
-							}
-						/>
+						<Route path="/itemcontainer/:id" element={<ItemContainer />} />
 					</Routes>
 				</div>
 			</FuncContext>

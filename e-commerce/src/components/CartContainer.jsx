@@ -28,9 +28,11 @@ function CartContainer() {
 				</Button>
 				<Offcanvas show={show} onHide={handleClose} placement="end">
 					<Offcanvas.Header closeButton>
-						<Offcanvas.Title>
-							Cart <small>({cart.length} items)</small>
-						</Offcanvas.Title>
+						<div className="d-flex align-items-center">
+							<p>
+								Cart <b>({cart.length} items)</b>
+							</p>
+						</div>
 					</Offcanvas.Header>
 					<OffcanvasBody>
 						{cart.length >= 1 ? (
@@ -41,7 +43,9 @@ function CartContainer() {
 											<div className="mb-1 d-flex justify-content-between">
 												<div>
 													<h5>{item.name}</h5>
-													<p>Item total price: ₱{item.totalPrice}</p>
+													<p>
+														Item total price: <b>₱{item.totalPrice}</b>
+													</p>
 												</div>
 												<p className="fw-bolder fs-5">₱{item.price}</p>
 											</div>
@@ -89,7 +93,9 @@ function CartContainer() {
 								</div>
 							</>
 						) : (
-							<p>No items added yet :(</p>
+							<div className="h-100 d-flex align-items-center justify-content-center">
+								<h4>No items added yet :(</h4>
+							</div>
 						)}
 					</OffcanvasBody>
 				</Offcanvas>

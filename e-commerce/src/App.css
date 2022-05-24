@@ -2,6 +2,7 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
 }
 
 .App {
@@ -36,7 +37,7 @@
 
 .marketContainer {
 	background-color: #61dafb;
-	width: 150px;
+	width: 200px;
 	height: 200px;
 }
 
