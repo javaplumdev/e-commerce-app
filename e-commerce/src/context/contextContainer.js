@@ -10,6 +10,11 @@ export function FuncContext({ children }) {
 	const [cart, setCart] = useState([]);
 	const [grandTotal, setGrandTotal] = useState(0);
 
+	const [show, setShow] = useState(false);
+
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+
 	function increaseItemQty(id) {
 		marketDataState.map((item) => {
 			if (id === item.id) {
@@ -93,6 +98,10 @@ export function FuncContext({ children }) {
 				cart,
 				grandTotal,
 				removeItem,
+				show,
+				setShow,
+				handleClose,
+				handleShow,
 			}}
 		>
 			{children}

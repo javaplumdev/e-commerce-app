@@ -8,17 +8,19 @@ function MarketContainer() {
 	const { marketDataState } = useContext(contextProvider);
 
 	return (
-		<>
+		<div className="container d-flex flex-wrap">
 			{marketDataState.map((item) => {
 				return (
-					<Link key={item.id} to={`/itemcontainer/${item.id}`}>
-						<div className="marketContainer">
-							<p>{item.name}</p>
-						</div>
-					</Link>
+					<div key={item.id} className="marketContainer  m-2">
+						<Link to={`/itemcontainer/${item.id}`}>
+							<div className="marketContainer">
+								<p>{item.name}</p>
+							</div>
+						</Link>
+					</div>
 				);
 			})}
-		</>
+		</div>
 	);
 }
 
