@@ -13,11 +13,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { Toaster } from 'react-hot-toast';
+
 function App() {
 	return (
 		<Router>
 			<FuncContext>
 				<div className="App">
+					<Toaster />
 					<Routes>
 						<Route
 							index

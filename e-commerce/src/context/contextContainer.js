@@ -2,6 +2,8 @@ import React, { createContext, useState } from 'react';
 
 import { marketData } from '../data/marketData';
 
+import { toast } from 'react-hot-toast';
+
 export const contextProvider = createContext();
 
 export function FuncContext({ children }) {
@@ -53,7 +55,7 @@ export function FuncContext({ children }) {
 		const isItemExist = cart.find((item) => item.id === id);
 
 		if (isItemExist) {
-			console.log('Item already added');
+			toast.error('Item already added.');
 		} else {
 			marketDataState.map((item) => {
 				if (id === item.id) {

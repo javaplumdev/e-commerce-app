@@ -39,3 +39,15 @@
 	width: 150px;
 	height: 200px;
 }
+
+.BsXCircle {
+	transition: 0.3s ease-out;
+}
+
+.BsXCircle:hover {
+	cursor: pointer;
+}
+
+.cart-items {
+	border-bottom: 1px solid rgba(31, 29, 29, 0.176);
+}
