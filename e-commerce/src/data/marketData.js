@@ -20,4 +20,11 @@ export const marketData = [
 		itemQty: 0,
 		totalPrice: 0,
 	},
+	{
+		id: 4,
+		name: 'Stereo',
+		price: 30,
+		itemQty: 0,
+		totalPrice: 0,
+	},
 ];

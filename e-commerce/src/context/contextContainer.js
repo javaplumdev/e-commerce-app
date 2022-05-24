@@ -35,8 +35,8 @@ export function FuncContext({ children }) {
 	function decreaseItemQty(id) {
 		marketDataState.map((item) => {
 			if (id === item.id) {
-				if (itemQuantity <= 1) {
-					return 0;
+				if (itemQuantity <= 2) {
+					return 1;
 				} else {
 					setItemQuantity(item.itemQty--);
 					item.totalPrice = item.totalPrice - item.price;
@@ -60,7 +60,6 @@ export function FuncContext({ children }) {
 			marketDataState.map((item) => {
 				if (id === item.id) {
 					setItemQuantity(item.itemQty++);
-
 					item.totalPrice = item.price * item.itemQty;
 				}
 			});
@@ -69,6 +68,8 @@ export function FuncContext({ children }) {
 			setGrandTotal(
 				(prevState) => prevState + product.totalPrice * product.itemQty
 			);
+
+			toast.success('Item added');
 		}
 	}
 
@@ -87,6 +88,7 @@ export function FuncContext({ children }) {
 		}, 0);
 
 		setGrandTotal(total);
+		toast.success('Item removed');
 	}
 
 	return (

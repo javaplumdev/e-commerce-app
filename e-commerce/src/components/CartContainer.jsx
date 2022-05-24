@@ -76,8 +76,16 @@ function CartContainer() {
 									);
 								})}
 								<br></br>
-								<div className="sub-total position-absolute bottom-0">
-									<p>Grand total price: {grandTotal} </p>
+								<div
+									className="sub-total w-100 d-flex align-items-center justify-content-between"
+									style={{ height: '75px' }}
+								>
+									<div className="d-flex">
+										Sub total: <h5 className="mx-2">₱{grandTotal}</h5>
+									</div>
+									<div className="me-4">
+										<Button>Buy</Button>
+									</div>
 								</div>
 							</>
 						) : (
