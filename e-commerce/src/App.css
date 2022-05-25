@@ -22,3 +22,24 @@
 .cart-items {
 	border-bottom: 1px solid rgba(31, 29, 29, 0.176);
 }
+
+.otherImages:hover {
+	cursor: pointer;
+}
+
+.banner-holder {
+	position: relative;
+}
+
+.banner {
+	height: 400px;
+	position: absolute;
+	top: 0%;
+	left: 30%;
+}
+
+@media (max-width: 360px) {
+	.banner {
+		display: none;
+	}
+}

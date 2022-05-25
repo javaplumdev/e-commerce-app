@@ -72,4 +72,58 @@ export const marketData = [
 		itemQty: 0,
 		totalPrice: 0,
 	},
+	{
+		id: 7,
+		name: 'Converse shoes',
+		img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=812',
+		description:
+			'A classic converse shoes that are so very comfortable to wear anytime anywhere',
+		price: 60,
+		itemQty: 0,
+		totalPrice: 0,
+		otherImages: [
+			{
+				id: 1,
+				image:
+					'https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=812',
+			},
+			{
+				id: 2,
+				image:
+					'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871',
+			},
+			{
+				id: 3,
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464',
+			},
+		],
+	},
+	{
+		id: 8,
+		name: 'Once piece Luffy action figure',
+		img: 'https://images.unsplash.com/photo-1592547097938-7942b22df3db?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871',
+		description:
+			'A classic converse shoes that are so very comfortable to wear anytime anywhere',
+		price: 60,
+		itemQty: 0,
+		totalPrice: 0,
+		otherImages: [
+			{
+				id: 1,
+				image:
+					'https://images.unsplash.com/photo-1621478374422-35206faeddfb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870',
+			},
+			{
+				id: 2,
+				image:
+					'https://images.unsplash.com/photo-1592547097938-7942b22df3db?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871',
+			},
+			{
+				id: 3,
+				image:
+					'https://images.unsplash.com/photo-1547861533-ae8896b04d10?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774',
+			},
+		],
+	},
 ];

@@ -43,20 +43,20 @@ function ItemContainer() {
 											objectFit: 'cover',
 										}}
 									/>
-									<div className="my-3 d-flex justify-content-between flex-wrap">
+									<div className="my-3 d-flex flex-wrap">
 										{item.hasOwnProperty('otherImages') ? (
 											item.otherImages.map((image) => {
 												return (
 													<motion.img
 														whileHover={{ scale: 1.1 }}
-														className="me-2 cursor-pointer"
+														className="otherImages m-2 cursor-pointer"
 														onMouseOver={() => mouseHovered(image.image, item)}
 														key={image.id}
 														src={image.image}
 														alt={image.image}
 														style={{
-															width: '150px',
-															height: '150px',
+															width: '100px',
+															height: '100px',
 															objectFit: 'cover',
 														}}
 													/>
@@ -97,7 +97,9 @@ function ItemContainer() {
 									>
 										Add to cart
 									</Button>
-									<Button variant="dark">Buy now</Button>
+									<Button variant="dark" className="my-2">
+										Buy now
+									</Button>
 								</div>
 							</div>
 						);
