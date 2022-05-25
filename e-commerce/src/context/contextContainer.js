@@ -17,6 +17,8 @@ export function FuncContext({ children }) {
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
+	const [imageShow, setImageShow] = useState(false);
+
 	function increaseItemQty(id) {
 		marketDataState.map((item) => {
 			if (id === item.id) {
@@ -91,6 +93,16 @@ export function FuncContext({ children }) {
 		toast.success('Item removed');
 	}
 
+	function mouseHovered(image, item) {
+		setImageShow(image);
+
+		item.img = `${image}`;
+	}
+
+	function onTop() {
+		window.scroll(0, 0);
+	}
+
 	return (
 		<contextProvider.Provider
 			value={{
@@ -106,6 +118,8 @@ export function FuncContext({ children }) {
 				setShow,
 				handleClose,
 				handleShow,
+				mouseHovered,
+				onTop,
 			}}
 		>
 			{children}
